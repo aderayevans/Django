@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'home.apps.HomeConfig',
+    'library.apps.LibraryConfig',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -76,10 +78,16 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'localhost:1521/XEPDB1',
-        'USER': 'django',
-        'PASSWORD': 'django',
+        # 'ENGINE': 'django.db.backends.oracle',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'polling',
+        'HOST': 'localhost',
+        'USER': 'djangouser',
+        'PASSWORD': 'djangopassword',
+        
+        'OPTIONS': {
+            'sql_mode': 'traditional',
+        }
     }
 }
 
